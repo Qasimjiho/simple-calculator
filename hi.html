@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            position: relative;
+
+        }
+       
+    
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg,#0a0a0a,#3a4452);
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            
+        }
+        div{
+            background-color: #3a4452;
+            width: 25rem;
+            /* border: 2px solid green; */
+            padding: 10px;
+        }
+        [type=text]{
+            background-color: rgb(20, 24, 24);
+            color: white;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 40px;
+            text-align: right;
+            height: 50px;
+            width: 100%;
+            border: none;
+            border-radius: 14px;
+            margin-top: 10px;
+        }
+        ::placeholder{
+            text-align: right;
+            font-size: 40px;
+            padding: 10px;
+            color: white;
+        }
+        h2{
+            text-transform: capitalize;
+            font-size: 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 3.0s;
+            opacity: .8;
+            overflow: auto;
+            color: rgb(255, 255, 255);
+            background: linear-gradient(45deg, #3a4e6b,#c7911c,#25d366, #98b9e6);
+        }
+        h2:hover{
+            transform: scale(1.05);
+            background-color: #ff1919;
+            color: rgb(11, 12, 1);
+        }
+        button{
+            width: 60px;
+            font-size: 18px;
+            font-weight: bold;
+            height: 45px;
+            margin: 0px 15px;
+            border-radius: 90px;
+            border: none;
+            box-shadow: 5px 5px 10px black;
+            opacity: 0.7;
+            transition: 1.5s;
+        }
+        button:hover{
+            background-color: #3a4452;
+            color: rgb(156, 223, 31);
+            transform: scale(1.2);
+        }
+        .operate{
+            color: rgb(255, 57, 31);
+            font-size: 20px;
+        }
+        .equal{
+            color: rgb(238, 159, 139);
+        }
+          .whatsapp-float {
+            right: 32px;
+            bottom: 32px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 30px;
+            bottom: 18px;
+            z-index: 999;
+            background: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-float img .facebook-float img {
+            display: block;
+        }
+
+        .facebook-float {
+            position: fixed;
+            left: 30px;
+            bottom: 18px;
+            z-index: 999;
+            background: #1877f3;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    
+
+    </style>
+</head>
+<body>
+    <main class="container">
+       <div>
+        <h2>this calculator edit  by qasim jiho</h2>
+         <input type="text" id="input" placeholder="0" disabled>
+        </div>
+        <div class="butto">
+            <button class="operate" onclick="cleardis()">AC</button>
+            <button class="operate" onclick="del('')">DEL</button>
+            <button class="operate" onclick="press('%')">%</button>
+            <button class="operate" onclick="press('/')">/</button>
+        </div>
+        <div class="butto">
+            <button onclick="press('9')">9</button>
+            <button onclick="press('8')">8</button>
+            <button onclick="press('7')">7</button>
+            <button class="operate" onclick="press('*')">*</button>
+        </div>
+        <div class="butto">
+            <button onclick="press('4')">4</button>
+            <button onclick="press('5')">5</button>
+            <button onclick="press('6')">6</button>
+            <button class="operate" onclick="press('-')">-</button>
+        </div>
+        <div class="butto">
+            <button onclick="press('1')">1</button>
+            <button onclick="press('2')">2</button>
+            <button onclick="press('3')">3</button>
+            <button class="operate" onclick="press('+')">+</button>
+        </div>
+            <div class="butto">
+            <button onclick="press('0')">0</button>
+            <button onclick="press('00')">00</button>
+            <button onclick="press('.')">.</button>
+            <button class="equal" onclick="hino()">=</button>
+        </div>
+    </main>
+    <footer><a href="https://wwww.facebook.com/muhammad.qasim.412368" target="_blank" class="facebook-float"
+    aria-label="Visit Facebook">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"
+        style="width:48px;height:48px;">
+</a>
+<a href="https://wa.me/+923125726553" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+        style="width:48px;height:48px;">
+</a></footer>
+  <script>
+    let display =document.getElementById('input');
+    function press(value){
+      display.value +=value
+    }
+    function hino(){
+      display.value=eval(display.value)
+    }
+    function cleardis(){
+      display.value="";
+    }
+    function del(){
+      let display =document.getElementById('input');
+      display.value =display.value.slice(0, -1);
+    }
+  </script>
+</body>
+</html>
